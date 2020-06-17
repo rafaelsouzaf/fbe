@@ -32,15 +32,23 @@ A company admin needs to be able to:
 
 ## Solution
 
-- Rest application
+- Spring Boot
+- Hibernate
 - MariaDB
 - Docker
 - cURL
 
-### Libraries
+### Requirements
 
-- Spring Boot
-- Hibernate
+- Java 11
+- Docker client
+- Lombok plugin for your IDE.
+
+Intellij:
+https://plugins.jetbrains.com/plugin/6317-lombok
+
+Eclipse:
+https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
 
 ### SQL Structure
 
@@ -94,6 +102,7 @@ INSERT INTO `employee` (`company_id`,`name`,`surname`,`email`,`address`,`salary`
 
 ### Endpoints (curl)
 
+```
 POST /company
 PUT /company/[id]
 GET /company/all
@@ -106,6 +115,7 @@ GET /employee/[id]
 GET /employee/all
 GET /employee/all/[company-id]
 DELETE /company/[company-id]
+```
 
 ### Testing
 
