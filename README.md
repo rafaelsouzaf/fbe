@@ -34,14 +34,14 @@ A company admin needs to be able to:
 
 - Spring Boot
 - Hibernate
-- MariaDB
 - Docker
+- Postgres
 - cURL
 
 ### Requirements
 
 - Java 11
-- Docker client
+- Docker
 - Lombok plugin for your IDE.
 
 Intellij:
@@ -116,16 +116,40 @@ GET /employee/all
 GET /employee/all/[company-id]
 DELETE /company/[company-id]
 ```
+### Docker (Postgres and PgAdmin4)
 
-### Testing
+This project are using the Postgres database and the PgAdmin4 web client. Both are running in 
+docker containers that is possible to start using the follow command:
 
-Please execute:
+``
+docker-compose up
+``
 
-`mvn clean test`
+#### PgAdmin4
+- Link: http://localhost:5050/browser/
+- PgAdmin4 User: pgadmin4@pgadmin.org
+- PgAdmin4 Password: admin
+
+#### Postgres DB 
+- Host: postgres_container (Docker's hostname)
+- Database: postgres
+- User: postgres
+- Pass: admin
+
+_** To connect the PgAdmin container with the Postgres container, in the PgAdmin configuration we need to 
+use `host: postgres_container` (the host is the container's name). The `localhost` or `127.0.0.1` does 
+not work because in this case is connections between containers.
 
 ### Running
 
-`mvn spring-boot:run`
+```
+docker-compose up
+mvn spring-boot:run
+```
+
+### Testing
+
+`mvn clean test`
 
 ### Building
 
