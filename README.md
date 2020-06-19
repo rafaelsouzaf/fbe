@@ -57,16 +57,22 @@ Please see:
 `./ddl-reference-structure.sql`
 
 
-
 ### Endpoints (curl)
 
-```
-POST /company
-PUT /company/[id]
-GET /company/all
-GET /company/[id]
-DELETE /company/[id]
+#### Company
 
+| ACTION        | cURL
+| ------        | ------
+| GET ALL       | `curl -X GET localhost:8081/company`
+| GET BY ID     | `curl -X GET localhost:8081/company/3`
+| ADD           | `curl -X POST localhost:8081/company -H 'Content-type:application/json' -d '{"name": "Company Name Here"}'`
+| EDIT          | `curl -X PUT localhost:8081/company -H 'Content-type:application/json' -d '{"id": 3, "name": "Changed Company Name"}'`
+| DELETE        | `curl -X DELETE localhost:8081/company/3`
+
+
+### Employee (Pending)
+
+```
 POST /employee
 PUT /employee/[id]
 GET /employee/[id]
@@ -74,6 +80,10 @@ GET /employee/all
 GET /employee/all/[company-id]
 DELETE /company/[company-id]
 ```
+
+
+
+
 ### Docker (Postgres and PgAdmin4)
 
 This project are using the Postgres database and PgAdmin4 web client. Both are running in 
@@ -92,7 +102,7 @@ docker containers:
 
 _** To connect the PgAdmin container with the Postgres container, in the PgAdmin configuration we need to 
 use `host: postgres_container` (the host is the container's name). The `localhost` or `127.0.0.1` does 
-not work because in this case is connections between containers.
+not work because in this case is connections between containers._
 
 ### Running
 
@@ -111,3 +121,10 @@ mvn spring-boot:run
 ### Building
 
 `mvn clean install `
+
+### TODO
+
+- Handling exceptions.
+- Authentication?
+- Physical log?
+- Add JenkinsFile?
