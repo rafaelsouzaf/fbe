@@ -126,6 +126,7 @@ mvn spring-boot:run
 
 - Unit/Integration tests.
 - Handling exceptions.
+- Filter response data with @JsonView
 - Authentication?
 - Physical logs?
 - Add JenkinsFile and deploy to some place?
