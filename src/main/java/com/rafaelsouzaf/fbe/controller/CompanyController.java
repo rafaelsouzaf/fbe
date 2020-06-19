@@ -27,8 +27,12 @@ public class CompanyController {
     }
 
     @PostMapping
-    @PutMapping
     Company save(@RequestBody Company company) {
+        return companyRepository.save(company);
+    }
+
+    @PutMapping
+    Company update(@RequestBody Company company) {
         return companyRepository.save(company);
     }
 
