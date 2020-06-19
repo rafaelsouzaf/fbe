@@ -124,7 +124,8 @@ mvn spring-boot:run
 
 ### TODO
 
+- Unit/Integration tests.
 - Handling exceptions.
 - Authentication?
-- Physical log?
-- Add JenkinsFile?
+- Physical logs?
+- Add JenkinsFile and deploy to some place?
