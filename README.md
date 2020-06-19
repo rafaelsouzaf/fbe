@@ -72,16 +72,13 @@ Please see:
 
 ### Employee (Pending)
 
-```
-POST /employee
-PUT /employee/[id]
-GET /employee/[id]
-GET /employee/all
-GET /employee/all/[company-id]
-DELETE /company/[company-id]
-```
-
-
+| ACTION        | cURL
+| ------        | ------
+| GET ALL       | `curl -X GET localhost:8081/employee`
+| GET BY ID     | `curl -X GET localhost:8081/employee/3`
+| ADD           | `curl -X POST localhost:8081/employee -H 'Content-type:application/json' -d '{"name": "Rafael", "surname": "Fijalkowski", "email": "myemail@gmail.com", "address": "Street 41, 50832", "salary": 120000, "company": {"id": 4}}'`
+| EDIT          | `curl -X PUT localhost:8081/employee -H 'Content-type:application/json' -d '{"id": 3, "name": "Rafael", "surname": "Fijalkowski", "email": "myemail@gmail.com", "address": "Street 41, 50832", "salary": 120000, "company": {"id": 4}}'`
+| DELETE        | `curl -X DELETE localhost:8081/employee/3`
 
 
 ### Docker (Postgres and PgAdmin4)
@@ -130,3 +127,4 @@ mvn spring-boot:run
 - Authentication?
 - Physical logs?
 - Add JenkinsFile and deploy to some place?
+- Encapsulate JSON response in standard format
