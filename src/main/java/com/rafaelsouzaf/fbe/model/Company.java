@@ -1,9 +1,7 @@
 package com.rafaelsouzaf.fbe.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -14,9 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "fbe_company")
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Company {
 
     @Id
@@ -28,15 +24,12 @@ public class Company {
     @Column(unique=true)
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "company")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "company")
+    @JsonIgnore
     private Set<Employee> employees = new HashSet<>();
 
     @Temporal(TemporalType.TIMESTAMP)
-    @NotEmpty
     @Column(updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @CreatedDate
-    private Date createdAt;
+    private Date createdAt = new Date();
 
 }

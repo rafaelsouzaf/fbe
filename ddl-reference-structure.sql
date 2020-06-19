@@ -1,3 +1,9 @@
+create schema public;
+
+comment on schema public is 'standard public schema';
+
+alter schema public owner to postgres;
+
 create table fbe_company
 (
 	id bigserial not null

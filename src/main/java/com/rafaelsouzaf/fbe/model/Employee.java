@@ -1,9 +1,6 @@
 package com.rafaelsouzaf.fbe.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -13,9 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "fbe_employee", indexes = { @Index(name = "IDX_employee_company", columnList = "company_id") })
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Employee {
 
     @Id
@@ -44,9 +39,7 @@ public class Employee {
     private Company company;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @NotEmpty
     @Column(updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @CreatedDate
-    private Date createdAt;
+    private Date createdAt = new Date();
 
 }
