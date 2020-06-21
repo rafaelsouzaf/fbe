@@ -7,10 +7,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "fbe_employee", indexes = { @Index(name = "IDX_employee_company", columnList = "company_id") })
+@Table(name = "fbe_employee", indexes = {@Index(name = "IDX_employee_company", columnList = "company_id")})
 @Data
 public class Employee {
 
@@ -33,14 +34,14 @@ public class Employee {
     private String address;
 
     @NotNull
-    private Integer salary;
+    private BigDecimal salary;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdAt = new Date();
 
 }
