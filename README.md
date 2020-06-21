@@ -128,4 +128,5 @@ mvn spring-boot:run
 - [ ] Authentication?
 - [ ] Physical logs?
 - [ ] Add JenkinsFile and deploy to some place?
-- [x] Encapsulate JSON response in standard format
+- [X] Encapsulate JSON response in standard format
+- [ ] Add support to filters such as orderBy, limit, offset?
