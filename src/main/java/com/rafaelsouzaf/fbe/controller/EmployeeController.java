@@ -1,12 +1,11 @@
 package com.rafaelsouzaf.fbe.controller;
 
 import com.rafaelsouzaf.fbe.model.Employee;
+import com.rafaelsouzaf.fbe.model.Response;
 import com.rafaelsouzaf.fbe.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping(path = "/employee")
@@ -17,23 +16,23 @@ public class EmployeeController {
     EmployeeRepository employeeRepository;
 
     @GetMapping
-    List<Employee> get() {
-        return employeeRepository.findAll();
+    Response get() {
+        return Response.of(employeeRepository.findAll());
     }
 
     @GetMapping(path = "/{id}")
-    Employee get(@PathVariable Long id) {
-        return employeeRepository.findById(id).orElseThrow();
+    Response get(@PathVariable Long id) {
+        return Response.of(employeeRepository.findById(id).orElseThrow());
     }
 
     @PostMapping
-    Employee save(@RequestBody Employee employee) {
-        return employeeRepository.save(employee);
+    Response save(@RequestBody Employee employee) {
+        return Response.of(employeeRepository.save(employee));
     }
 
     @PutMapping
-    Employee update(@RequestBody Employee employee) {
-        return employeeRepository.save(employee);
+    Response update(@RequestBody Employee employee) {
+        return Response.of(employeeRepository.save(employee));
     }
 
     @DeleteMapping(path = "/{id}")
