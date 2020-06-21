@@ -61,24 +61,25 @@ Please see:
 
 #### Company
 
-| ACTION        | cURL
-| ------        | ------
-| GET ALL       | `curl -X GET localhost:8081/company`
-| GET BY ID     | `curl -X GET localhost:8081/company/3`
-| ADD           | `curl -X POST localhost:8081/company -H 'Content-type:application/json' -d '{"name": "Company Name Here"}'`
-| EDIT          | `curl -X PUT localhost:8081/company -H 'Content-type:application/json' -d '{"id": 3, "name": "Changed Company Name"}'`
-| DELETE        | `curl -X DELETE localhost:8081/company/3`
+| ACTION            | cURL
+| ------            | ------
+| GET ALL           | `curl -X GET localhost:8081/company`
+| GET BY ID         | `curl -X GET localhost:8081/company/3`
+| ADD               | `curl -X POST localhost:8081/company -H 'Content-type:application/json' -d '{"name": "Company Name Here"}'`
+| EDIT              | `curl -X PUT localhost:8081/company -H 'Content-type:application/json' -d '{"id": 3, "name": "Changed Company Name"}'`
+| DELETE            | `curl -X DELETE localhost:8081/company/3`
+| AVERAGE SALARY BY ID | `curl -X GET localhost:8081/company/average-salary/3`
 
 
-### Employee (Pending)
+### Employee
 
-| ACTION        | cURL
-| ------        | ------
-| GET ALL       | `curl -X GET localhost:8081/employee`
-| GET BY ID     | `curl -X GET localhost:8081/employee/3`
-| ADD           | `curl -X POST localhost:8081/employee -H 'Content-type:application/json' -d '{"name": "Rafael", "surname": "Fijalkowski", "email": "myemail@gmail.com", "address": "Street 41, 50832", "salary": 120000, "company": {"id": 4}}'`
-| EDIT          | `curl -X PUT localhost:8081/employee -H 'Content-type:application/json' -d '{"id": 3, "name": "Rafael", "surname": "Fijalkowski", "email": "myemail@gmail.com", "address": "Street 41, 50832", "salary": 120000, "company": {"id": 4}}'`
-| DELETE        | `curl -X DELETE localhost:8081/employee/3`
+| ACTION            | cURL
+| ------            | ------
+| GET ALL           | `curl -X GET localhost:8081/employee`
+| GET BY ID         | `curl -X GET localhost:8081/employee/3`
+| ADD               | `curl -X POST localhost:8081/employee -H 'Content-type:application/json' -d '{"name": "Rafael", "surname": "Fijalkowski", "email": "myemail@gmail.com", "address": "Street 41, 50832", "salary": 120000, "company": {"id": 4}}'`
+| EDIT              | `curl -X PUT localhost:8081/employee -H 'Content-type:application/json' -d '{"id": 3, "name": "Rafael", "surname": "Fijalkowski", "email": "myemail@gmail.com", "address": "Street 41, 50832", "salary": 120000, "company": {"id": 4}}'`
+| DELETE            | `curl -X DELETE localhost:8081/employee/3`
 
 
 ### Docker (Postgres and PgAdmin4)
@@ -121,10 +122,10 @@ mvn spring-boot:run
 
 ### TODO
 
-- Unit/Integration tests.
-- Handling exceptions.
-- Filter response data with @JsonView
-- Authentication?
-- Physical logs?
-- Add JenkinsFile and deploy to some place?
-- Encapsulate JSON response in standard format
+- [ ] Unit/Integration tests.
+- [ ] Handling exceptions.
+- [ ] Filter response data with @JsonView
+- [ ] Authentication?
+- [ ] Physical logs?
+- [ ] Add JenkinsFile and deploy to some place?
+- [x] Encapsulate JSON response in standard format
