@@ -1,9 +1,3 @@
-create schema public;
-
-comment on schema public is 'standard public schema';
-
-alter schema public owner to postgres;
-
 create table fbe_company
 (
 	id bigserial not null
@@ -26,7 +20,7 @@ create table fbe_employee
 	created_at timestamp default CURRENT_TIMESTAMP,
 	email varchar(255),
 	name varchar(255),
-	salary integer,
+	salary numeric(19,2) not null,
 	surname varchar(255),
 	company_id bigint not null
 		constraint fkfuvpxvxaa7h1lk33rie2b2jvb
