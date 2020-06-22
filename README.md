@@ -58,6 +58,12 @@ https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
 | 404 employee      | `curl -X GET localhost:8081/employee/3000`
 | 400 bad request   | `curl -X GET localhost:8081/company/asdasdasd`
 
+### Actuator
+
+| ACTION            | cURL
+| ------            | ------
+| Health            | `curl -X GET localhost:8081/actuator/health`
+
 ### Running
 
 ```
