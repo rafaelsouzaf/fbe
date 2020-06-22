@@ -8,6 +8,7 @@ INSERT INTO "fbe_company" (name) VALUES ('Nisl Associates');
 INSERT INTO "fbe_company" (name) VALUES ('Nam Interdum Inc.');
 INSERT INTO "fbe_company" (name) VALUES ('Sed Pede Cum Corporation');
 INSERT INTO "fbe_company" (name) VALUES ('Nec Ante Associates');
+INSERT INTO "fbe_company" (name) VALUES ('Rafael GmbH');
 
 INSERT INTO "fbe_employee" (company_id,name,surname,email,address,salary) VALUES (8,'Castor','Bailey','velit@portaelit.edu','P.O. Box 271, 7748 Enim St.',57516);
 INSERT INTO "fbe_employee" (company_id,name,surname,email,address,salary) VALUES (7,'Gary','Jenkins','molestie.tellus.Aenean@nonummy.edu','Ap #534-5912 Tellus, Avenue',398058);

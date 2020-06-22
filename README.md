@@ -80,7 +80,13 @@ mvn spring-boot:run
 
 ### Testing
 
-`mvn clean test` (pending)
+```
+# Start docker containers (PostgreSQL and PgAdmin4)
+docker-compose up
+
+# Test
+mvn clean test
+```
 
 ### Building
 
