@@ -118,7 +118,7 @@ docker containers:
 
 - [X] Encapsulate JSON response in standard format
 - [X] Handling exceptions.
-- [ ] Unit/Integration tests.
+- [X] Integration tests.
 - [ ] Filter response data with @JsonView or DTO?
 - [ ] Authentication?
 - [ ] Physical logs?
