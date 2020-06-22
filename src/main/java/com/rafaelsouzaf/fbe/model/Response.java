@@ -7,7 +7,6 @@ import lombok.Setter;
 @Setter
 public class Response {
 
-    String version = "v0.1.0";
     Object data;
 
     private Response(Object obj) {

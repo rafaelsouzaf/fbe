@@ -1,5 +1,6 @@
 package com.rafaelsouzaf.fbe.controller;
 
+import com.rafaelsouzaf.fbe.exception.NotFoundException;
 import com.rafaelsouzaf.fbe.model.Company;
 import com.rafaelsouzaf.fbe.model.Response;
 import com.rafaelsouzaf.fbe.repository.CompanyRepository;
@@ -27,8 +28,10 @@ public class CompanyController {
     }
 
     @GetMapping(path = "/{id}")
-    Response get(@PathVariable Long id) {
-        return Response.of(companyRepository.findById(id).orElseThrow());
+    Response get(@PathVariable Long id) throws NotFoundException {
+        return Response.of(companyRepository.findById(id).orElseThrow(
+                () -> new NotFoundException(id)
+        ));
     }
 
     @PostMapping
@@ -37,18 +40,26 @@ public class CompanyController {
     }
 
     @PutMapping
-    Response update(@RequestBody Company company) {
+    Response update(@RequestBody Company company) throws NotFoundException {
+        companyRepository.findById(company.getId()).orElseThrow(
+                () -> new NotFoundException(company.getId())
+        );
         return Response.of(companyRepository.save(company));
     }
 
     @DeleteMapping(path = "/{id}")
-    void delete(@PathVariable Long id) {
-        // TODO check if there are employees vinculated, if not, can delete
+    void delete(@PathVariable Long id) throws NotFoundException {
+        companyRepository.findById(id).orElseThrow(
+                () -> new NotFoundException(id)
+        );
         companyRepository.deleteById(id);
     }
 
     @GetMapping(path = "/average-salary/{id}")
-    Response averageSalary(@PathVariable Long id) {
+    Response averageSalary(@PathVariable Long id) throws NotFoundException {
+        companyRepository.findById(id).orElseThrow(
+                () -> new NotFoundException(id)
+        );
         return Response.of(employeeRepository.getAverageSalary(id).setScale(2, RoundingMode.HALF_EVEN));
     }
 

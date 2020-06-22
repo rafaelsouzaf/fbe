@@ -2,7 +2,7 @@
 
 (!!! Not ready !!!)
 
-Java Spring Boot REST (CRUD) application.
+Java Spring Boot application.
 
 https://github.com/rafaelsouzaf/fbe
 
@@ -82,6 +82,16 @@ Please see:
 | DELETE            | `curl -X DELETE localhost:8081/employee/3`
 
 
+### Exceptions/Errors (some examples)
+
+| ACTION            | cURL
+| ------            | ------
+| 404 endpoint      | `curl -X GET localhost:8081/blahblah`
+| 404 company       | `curl -X GET localhost:8081/company/3000`
+| 404 employee      | `curl -X GET localhost:8081/employee/3000`
+| 400 bad request   | `curl -X GET localhost:8081/company/asdasdasd`
+
+
 ### Docker (Postgres and PgAdmin4)
 
 This project are using the Postgres database and PgAdmin4 web client. Both are running in 
@@ -122,11 +132,11 @@ mvn spring-boot:run
 
 ### TODO
 
+- [X] Encapsulate JSON response in standard format
+- [X] Handling exceptions.
 - [ ] Unit/Integration tests.
-- [ ] Handling exceptions.
-- [ ] Filter response data with @JsonView
+- [ ] Filter response data with @JsonView?
 - [ ] Authentication?
 - [ ] Physical logs?
 - [ ] Add JenkinsFile and deploy to some place?
-- [X] Encapsulate JSON response in standard format
 - [ ] Add support to filters such as orderBy, limit, offset?

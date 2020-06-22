@@ -1,5 +1,6 @@
 package com.rafaelsouzaf.fbe.controller;
 
+import com.rafaelsouzaf.fbe.exception.NotFoundException;
 import com.rafaelsouzaf.fbe.model.Employee;
 import com.rafaelsouzaf.fbe.model.Response;
 import com.rafaelsouzaf.fbe.repository.EmployeeRepository;
@@ -21,8 +22,8 @@ public class EmployeeController {
     }
 
     @GetMapping(path = "/{id}")
-    Response get(@PathVariable Long id) {
-        return Response.of(employeeRepository.findById(id).orElseThrow());
+    Response get(@PathVariable Long id) throws NotFoundException {
+        return Response.of(employeeRepository.findById(id).orElseThrow(() -> new NotFoundException(id)));
     }
 
     @PostMapping
@@ -31,12 +32,18 @@ public class EmployeeController {
     }
 
     @PutMapping
-    Response update(@RequestBody Employee employee) {
+    Response update(@RequestBody Employee employee) throws NotFoundException {
+        employeeRepository.findById(employee.getId()).orElseThrow(
+                () -> new NotFoundException(employee.getId())
+        );
         return Response.of(employeeRepository.save(employee));
     }
 
     @DeleteMapping(path = "/{id}")
-    void delete(@PathVariable Long id) {
+    void delete(@PathVariable Long id) throws NotFoundException {
+        employeeRepository.findById(id).orElseThrow(
+                () -> new NotFoundException(id)
+        );
         employeeRepository.deleteById(id);
     }
 
