@@ -1,44 +1,18 @@
 # FBE (employee storage service for companies)
 
-(!!! Not ready !!!)
-
 Java Spring Boot application.
 
 https://github.com/rafaelsouzaf/fbe
 
 ## Requirement Specification
-
-### Definition
-
-We're building an employee storage service for companies. 
-
-A company admin needs to be able to:
-
-- create employee records for company,
-- view them in a list and detail view for company, 
-- update the employee records and delete them for company,
-- find the average salary for the company
-
-### Data definition
-
-- Employee model
-  - Name
-  - Surname
-  - email
-  - address
-  - salary
-  - company id
-  
-- Company model
-  - Name
+Please visit https://gist.github.com/rafaelsouzaf/01cf788673c617802b70392f4bb7e3dd
 
 ## Solution
 
 - Spring Boot
 - Hibernate
 - Docker
-- Postgres
-- cURL
+- PostgreSQL
 
 ### Requirements
 
@@ -49,13 +23,6 @@ Intellij:
 https://plugins.jetbrains.com/plugin/6317-lombok
 Eclipse:
 https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
-
-### SQL Structure
-
-Please see:
-
-`./ddl-reference-structure.sql`
-
 
 ### Endpoints (curl)
 
@@ -91,6 +58,33 @@ Please see:
 | 404 employee      | `curl -X GET localhost:8081/employee/3000`
 | 400 bad request   | `curl -X GET localhost:8081/company/asdasdasd`
 
+### Running
+
+```
+# Clone the repository
+git clone https://github.com/rafaelsouzaf/fbe
+cd fbe
+
+# Start docker containers (PostgreSQL and PgAdmin4)
+docker-compose up
+
+# Start App
+mvn spring-boot:run
+```
+
+### Testing
+
+`mvn clean test` (pending)
+
+### Building
+
+`mvn clean install` (pending)
+
+### SQL Structure
+
+Please see:
+
+`./ddl-reference-structure.sql`
 
 ### Docker (Postgres and PgAdmin4)
 
@@ -108,34 +102,12 @@ docker containers:
 - User: postgres
 - Pass: admin
 
-_** To connect the PgAdmin container with the Postgres container, in the PgAdmin configuration we need to 
-use `host: postgres_container` (the host is the container's name). The `localhost` or `127.0.0.1` does 
-not work because in this case is connections between containers._
-
-### Running
-
-```
-# Start docker containers (PostgreSQL and PgAdmin4)
-docker-compose up
-
-# Start Spring Boot
-mvn spring-boot:run
-```
-
-### Testing
-
-`mvn clean test`
-
-### Building
-
-`mvn clean install `
-
 ### TODO
 
 - [X] Encapsulate JSON response in standard format
 - [X] Handling exceptions.
 - [ ] Unit/Integration tests.
-- [ ] Filter response data with @JsonView?
+- [ ] Filter response data with @JsonView or DTO?
 - [ ] Authentication?
 - [ ] Physical logs?
 - [ ] Add JenkinsFile and deploy to some place?
