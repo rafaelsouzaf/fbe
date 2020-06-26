@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.RoundingMode;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/company")
 @Slf4j
 public class CompanyController {
