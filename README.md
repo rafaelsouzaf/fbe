@@ -1,8 +1,10 @@
 # FBE (employee storage service for companies)
 
-Java Spring Boot application.
-
+This project:
 https://github.com/rafaelsouzaf/fbe
+
+Web client Project:
+https://github.com/rafaelsouzaf/fbe-client
 
 ## Requirement Specification
 Please visit https://gist.github.com/rafaelsouzaf/01cf788673c617802b70392f4bb7e3dd
