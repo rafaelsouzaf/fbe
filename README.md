@@ -32,23 +32,26 @@ https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
 
 | ACTION            | cURL
 | ------            | ------
-| GET ALL           | `curl -X GET localhost:8081/company`
-| GET BY ID         | `curl -X GET localhost:8081/company/3`
+| ALL               | `curl -X GET localhost:8081/company`
+| ALL WITH AVG SALARY| `curl -X GET localhost:8081/company/with-avg-salary`
+| T BY ID           | `curl -X GET localhost:8081/company/3`
 | ADD               | `curl -X POST localhost:8081/company -H 'Content-type:application/json' -d '{"name": "Company Name Here"}'`
 | EDIT              | `curl -X PUT localhost:8081/company -H 'Content-type:application/json' -d '{"id": 3, "name": "Changed Company Name"}'`
 | DELETE            | `curl -X DELETE localhost:8081/company/3`
 | AVERAGE SALARY BY ID | `curl -X GET localhost:8081/company/average-salary/3`
+| COUNT             | `curl -X GET localhost:8081/company/count`
 
 
 ### Employee
 
 | ACTION            | cURL
 | ------            | ------
-| GET ALL           | `curl -X GET localhost:8081/employee`
-| GET BY ID         | `curl -X GET localhost:8081/employee/3`
+| ALL               | `curl -X GET localhost:8081/employee`
+| BY ID             | `curl -X GET localhost:8081/employee/3`
 | ADD               | `curl -X POST localhost:8081/employee -H 'Content-type:application/json' -d '{"name": "Rafael", "surname": "Fijalkowski", "email": "myemail@gmail.com", "address": "Street 41, 50832", "salary": 120000, "company": {"id": 4}}'`
 | EDIT              | `curl -X PUT localhost:8081/employee -H 'Content-type:application/json' -d '{"id": 3, "name": "Rafael", "surname": "Fijalkowski", "email": "myemail@gmail.com", "address": "Street 41, 50832", "salary": 120000, "company": {"id": 4}}'`
 | DELETE            | `curl -X DELETE localhost:8081/employee/3`
+| COUNT             | `curl -X GET localhost:8081/employee/count`
 
 
 ### Exceptions/Errors (some examples)
@@ -121,8 +124,8 @@ docker containers:
 - [X] Encapsulate JSON response in standard format
 - [X] Handling exceptions.
 - [X] Integration tests.
+- [X] Deployed to Heroku
+- [ ] Add support to filters such as orderBy, limit, offset?
 - [ ] Filter response data with @JsonView or DTO?
 - [ ] Authentication?
 - [ ] Physical logs?
-- [ ] Add JenkinsFile and deploy to some place?
-- [ ] Add support to filters such as orderBy, limit, offset?

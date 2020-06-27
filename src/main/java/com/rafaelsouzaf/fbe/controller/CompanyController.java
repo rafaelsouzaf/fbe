@@ -49,10 +49,13 @@ public class CompanyController {
     }
 
     @DeleteMapping(path = "/{id}")
-    void delete(@PathVariable Long id) throws NotFoundException {
+    void delete(@PathVariable Long id) throws Exception {
         companyRepository.findById(id).orElseThrow(
                 () -> new NotFoundException(id)
         );
+        if (employeeRepository.findByCompanyId(id).isPresent()) {
+            throw new Exception("It's not allowed to delete a company that has registered employees.");
+        }
         companyRepository.deleteById(id);
     }
 
@@ -62,6 +65,16 @@ public class CompanyController {
                 () -> new NotFoundException(id)
         );
         return Response.of(employeeRepository.getAverageSalary(id).setScale(2, RoundingMode.HALF_EVEN));
+    }
+
+    @GetMapping(path = "/with-avg-salary")
+    Response getAllWithAvgSalary() {
+        return Response.of(companyRepository.getAllWithAvgSalary());
+    }
+
+    @GetMapping(path = "/count")
+    Response count() {
+        return Response.of(companyRepository.count());
     }
 
 }

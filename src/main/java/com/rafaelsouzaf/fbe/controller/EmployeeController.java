@@ -48,4 +48,9 @@ public class EmployeeController {
         employeeRepository.deleteById(id);
     }
 
+    @GetMapping(path = "/count")
+    Response count() {
+        return Response.of(employeeRepository.count());
+    }
+
 }
