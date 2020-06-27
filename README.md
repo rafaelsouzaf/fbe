@@ -6,6 +6,14 @@ https://github.com/rafaelsouzaf/fbe
 Web client Project:
 https://github.com/rafaelsouzaf/fbe-client
 
+## Demo
+
+Web client:
+https://fbe-client.herokuapp.com
+
+This project:
+https://fbe-backend.herokuapp.com
+
 ## Requirement Specification
 Please visit https://gist.github.com/rafaelsouzaf/01cf788673c617802b70392f4bb7e3dd
 
@@ -34,7 +42,7 @@ https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
 | ------            | ------
 | ALL               | `curl -X GET localhost:8081/company`
 | ALL WITH AVG SALARY| `curl -X GET localhost:8081/company/with-avg-salary`
-| T BY ID           | `curl -X GET localhost:8081/company/3`
+| BY ID           | `curl -X GET localhost:8081/company/3`
 | ADD               | `curl -X POST localhost:8081/company -H 'Content-type:application/json' -d '{"name": "Company Name Here"}'`
 | EDIT              | `curl -X PUT localhost:8081/company -H 'Content-type:application/json' -d '{"id": 3, "name": "Changed Company Name"}'`
 | DELETE            | `curl -X DELETE localhost:8081/company/3`
@@ -79,6 +87,13 @@ cd fbe
 # Start docker containers (PostgreSQL and PgAdmin4)
 docker-compose up
 
+# Set up environment variables (in your IDE or command line)
+FBE_HOSTNAME=localhost
+FBE_PORT=5432
+FBE_DATABASE=postgres
+FBE_USERNAME=postgres
+FBE_PASSWORD=admin
+
 # Start App
 mvn spring-boot:run
 ```
@@ -95,7 +110,7 @@ mvn clean test
 
 ### Building
 
-`mvn clean install` (pending)
+`mvn clean install`
 
 ### SQL Structure
 
