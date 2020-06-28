@@ -136,10 +136,12 @@ docker containers:
 
 ### TODO
 
-- [X] Encapsulate JSON response in standard format
+- [X] Encapsulate JSON response in standard format.
 - [X] Handling exceptions.
 - [X] Integration tests.
 - [X] Deployed to Heroku
+- [ ] JavaDoc.
+- [ ] Create "application-prod.properties" for Production environment.
 - [ ] Add support to filters such as orderBy, limit, offset?
 - [ ] Filter response data with @JsonView or DTO?
 - [ ] Authentication?
